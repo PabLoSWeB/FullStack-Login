@@ -5,6 +5,7 @@ import java.util.List;
 
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -22,9 +23,11 @@ import com.example.FullStack_Login.repository.LoginInfoRepository;
 @Service 
 public class LoginInfoService {
     private  LoginInfoRepository loginInfoRepository;
+    private PasswordEncoder passwordEncoder;
 
-    public LoginInfoService (LoginInfoRepository loginInfoRepository) {
+    public LoginInfoService (LoginInfoRepository loginInfoRepository, PasswordEncoder passwordEncoder) {
         this.loginInfoRepository = loginInfoRepository;
+        this.passwordEncoder = passwordEncoder;
     }
 
     
@@ -60,6 +63,7 @@ public class LoginInfoService {
         loginInfo.setNumeroTelefone(numeroTelefoneNormalizado);
         loginInfo.setEmail(emailNormalizado);
         loginInfo.setNomeCompleto(nomeCompletoNormalizado);
+        loginInfo.setSenha(passwordEncoder.encode(requestdto.senha()));
 
         LoginInfo salvo = loginInfoRepository.save(loginInfo);
         return converterParaDto(salvo);
