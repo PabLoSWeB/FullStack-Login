@@ -83,7 +83,7 @@ public class LoginInfoController {
         ) 
     })
     @GetMapping("/buscarId{id}")
-    public ResponseEntity<LoginInfo> buscarPorId(@Parameter (description = "Insira um id e verá as informações correspondentes ao id.") @PathVariable Long id) {
+    public ResponseEntity<LoginInfo> buscarPorId(@Parameter (description = "Insira um id e verá as informações correspondentes ao id.", example = "1") @PathVariable Long id) {
         return ResponseEntity.ok(loginInfoService.buscarPorId(id));
     }
     
