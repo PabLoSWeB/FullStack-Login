@@ -41,7 +41,7 @@ public class LoginInfoService {
     }
 
     private String somenteDigitos (String valor) {
-        return valor.replaceAll("\\D", " ");
+        return valor.replaceAll("\\D", "");
     }
 
     @Transactional
@@ -71,8 +71,8 @@ public class LoginInfoService {
     }
 
     @Transactional (readOnly = true)
-    public LoginInfo buscarPorId (Long id) {
-        return loginInfoRepository.findById(id).orElseThrow(()-> new PessoaNaoEncontradaException("As informações buscadas pelo id" +id+ "não foram encontradas."));  
+    public LoginInfoResponsedto buscarPorId (Long id) {
+        return loginInfoRepository.findById(id).map(this::converterParaDto).orElseThrow(()-> new PessoaNaoEncontradaException("As informações buscadas pelo id " +id+ " não foram encontradas."));  
     }
     
     @Transactional (readOnly = true)
@@ -98,7 +98,7 @@ public class LoginInfoService {
         String numeroTelefoneNormalizado = somenteDigitos(requestdto.numeroTelefone());
         String emailNormalizado = requestdto.email().trim().toLowerCase();
         String nomeCompletoNormalizado = requestdto.nomeCompleto().trim();
-        LoginInfo login = buscarPorId(id);
+        LoginInfo login = loginInfoRepository.findById(id).orElseThrow(()-> new PessoaNaoEncontradaException("As informações buscadas pelo id " +id+ " não foram encontradas."));
 
         if (loginInfoRepository.existsByCpfAndIdNot(cpfNormalizado, id)) {
             throw new CpfJaCadastradoException("Este cpf já está cadastrado.");
