@@ -1,0 +1,49 @@
+# GET em um endpoint protegido (ex: listar usuários)
+GET http://localhost:8080/usuarios/listagem 
+Content-Type: application/json
+
+###############
+
+# POST para cadastrar usuário
+POST http://localhost:8080/cadastrar/usuarios 
+Content-Type: application/json
+
+{
+  "cpf": "529.982.247-25",
+  "numeroTelefone": "5123480239",
+  "email": "user@example.com",
+  "nomeCompleto": "Fulano de Tal",
+  "senha": "Userrrr12!"
+}
+
+###############
+
+# POST para fazer login e receber token
+POST http://localhost:8080/auth/login 
+Content-Type: application/json
+
+{
+    "email": "user@example.com", 
+    "senha": "Userrrr12!"
+}
+
+###############
+
+#Utilizar token para acessar endpoint protegido
+GET http://localhost:8080/cadastrar/listagem  
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJmdWxsc3RhY2stbG9naW4iLCJzdWIiOiJ1c2VyQGV4YW1wbGUuY29tIiwiZXhwIjoxNzk0MjY0NDA0fQ.RJWfi9FIWsMDk7_EFKMOUJldbtK0CY0sPp23vAxRa-4
+
+###############
+
+#Token alterado
+GET http://localhost:8080/cadastrar/listagem  
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJmdWxsc3RhY2stbG9naW4iLCJzdWIiOiJ1c2VyQGV4YW1wbGUuY29tIiwiZXhwIjoxNzk0MjY0MTUzfQ.anGqHDBbvrrtNAqiOrcvqwxXiu0GhbKwXRMHqWMYthkJuniorrrrr
+
+#############
+
+#Token expirado (modifique .withExpiresAt(Instant.now().plus(1, ChronoUnit.MINUTES)))
+GET http://localhost:8080/cadastrar/listagem  
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJmdWxsc3RhY2stbG9naW4iLCJzdWIiOiJ1c2VyQGV4YW1wbGUuY29tIiwiZXhwIjoxNzk0MjU2NDIwfQ.yIEh0JgOSJmD_vsIF0jvRl14nvqzeu3Uvwl9vh5AGvU

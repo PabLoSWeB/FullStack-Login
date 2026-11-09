@@ -11,7 +11,6 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.example.FullStack_Login.dto.LoginInfoRequestdto;
 import com.example.FullStack_Login.dto.LoginInfoResponsedto;
-import com.example.FullStack_Login.entity.LoginInfo;
 import com.example.FullStack_Login.service.LoginInfoService;
 
 import io.swagger.v3.oas.annotations.Operation;
