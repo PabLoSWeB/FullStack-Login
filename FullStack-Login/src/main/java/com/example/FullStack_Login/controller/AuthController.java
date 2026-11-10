@@ -33,7 +33,7 @@ public class AuthController{
     @PostMapping("/login")
     public ResponseEntity<LoginResponsedto> login(@Valid @RequestBody LoginRequestdto requestdto) {
     
-        UsernamePasswordAuthenticationToken credenciais = new UsernamePasswordAuthenticationToken(requestdto.email().translateEscapes().toLowerCase(), requestdto.senha());
+        UsernamePasswordAuthenticationToken credenciais = new UsernamePasswordAuthenticationToken(requestdto.email().toLowerCase(), requestdto.senha());
 
         Authentication authentication = authenticationManager.authenticate(credenciais);
 
