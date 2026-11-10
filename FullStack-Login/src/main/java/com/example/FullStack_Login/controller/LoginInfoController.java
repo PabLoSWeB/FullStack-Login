@@ -17,6 +17,7 @@ import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.Parameter;
 import io.swagger.v3.oas.annotations.responses.ApiResponse;
 import io.swagger.v3.oas.annotations.responses.ApiResponses;
+import io.swagger.v3.oas.annotations.security.SecurityRequirement;
 import jakarta.validation.Valid;
 
 import org.springframework.web.bind.annotation.PostMapping;
@@ -81,6 +82,7 @@ public class LoginInfoController {
             description = "O id inserido não foi encontrado."
         ) 
     })
+    @SecurityRequirement (name = "bearerAuth")
     @GetMapping("/buscarId{id}")
     public ResponseEntity<LoginInfoResponsedto> buscarPorId(@Parameter (description = "Insira um id e verá as informações correspondentes ao id.", example = "1") @PathVariable Long id) {
         return ResponseEntity.ok(loginInfoService.buscarPorId(id));
@@ -96,6 +98,7 @@ public class LoginInfoController {
             description = "Operação concluída."
         )
     })
+    @SecurityRequirement (name = "bearerAuth")
     @GetMapping("/listagem")
     public ResponseEntity<List<LoginInfoResponsedto>> listar () {
         return ResponseEntity.status(HttpStatus.OK).body(loginInfoService.listar());
@@ -111,6 +114,7 @@ public class LoginInfoController {
             description = "Operação concluída."
         )
     })
+    @SecurityRequirement (name = "bearerAuth")
     @GetMapping("/paginas")
     public ResponseEntity<Page<LoginInfoResponsedto>> listarTodosPaginados(@Parameter(description = "Listagem por paginação: page e size.")  Pageable pageable) {
         return ResponseEntity.ok(loginInfoService.listarTodosPaginados(pageable));
@@ -135,6 +139,7 @@ public class LoginInfoController {
         description = "O id inserido não foi encontrado."
     ) 
     })
+    @SecurityRequirement (name = "bearerAuth")
     @DeleteMapping("/deletar{id}")
     public void deletarPorId( @Parameter (description = "identificador do livro", example = "2") @PathVariable Long id) {
         loginInfoService.deletarPorID(id);
@@ -143,7 +148,7 @@ public class LoginInfoController {
 
     @Operation (
         summary = "Atualizar informações.",
-        description = "Quando solicitado, atualiza Cpf e Email."
+        description = "Quando solicitado, atualiza Cpf, Email, Número de Telefone e Nome Completo."
     )
     @ApiResponses ({
         @ApiResponse (
@@ -159,6 +164,7 @@ public class LoginInfoController {
             description = "O id inserido para a atualização não foi encontrado."
         )
     })
+    @SecurityRequirement (name = "bearerAuth")
     @PutMapping("atualizar/{id}")
     public ResponseEntity<LoginInfoResponsedto> putAtualizar(@Parameter (description = "Identificador da Pessoa.", example = "1")  @PathVariable Long id, @RequestBody LoginInfoRequestdto requestdto) {
         return ResponseEntity.ok(loginInfoService.putAtualizar(id, requestdto));

@@ -1,11 +1,13 @@
 package com.example.FullStack_Login.exceptions;
 
+import java.nio.file.AccessDeniedException;
 import java.time.LocalDateTime;
 import java.util.LinkedHashMap;
 import java.util.Map;
 
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.ErrorResponse;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.RestControllerAdvice;
 
@@ -62,4 +64,8 @@ public class GlobalExceptionHandler {
         return new ResponseEntity<>(body, HttpStatus.INTERNAL_SERVER_ERROR);
     }
 
+    @ExceptionHandler(AccessDeniedException.class) 
+    public void handleAccessDenied (AccessDeniedException ex) throws AccessDeniedException {
+        throw ex;
+    }
 }

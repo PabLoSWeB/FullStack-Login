@@ -31,6 +31,16 @@ public class SecurityConfig {
         .sessionManagement(sm -> sm.sessionCreationPolicy(SessionCreationPolicy.STATELESS))
         .authorizeHttpRequests(auth -> auth.requestMatchers(HttpMethod.POST, "/cadastrar/usuarios", "/auth/login").permitAll().requestMatchers("/swagger-ui/**", "/swagger-ui.html", "/v3/api-docs/**").permitAll().anyRequest().authenticated())
         .addFilterBefore(securityFilter, UsernamePasswordAuthenticationFilter.class)
+        .exceptionHandling(e -> e
+            .authenticationEntryPoint((req, res, ex) -> {
+                res.setStatus(401);
+                res.setContentType("application/json");
+                res.getWriter().write("{\"status\":401, \"mensagem\":\"Nao autenticado\"}");
+            }).accessDeniedHandler((req, res, ex) -> {
+                res.setStatus(403);
+                res.setContentType("application/json");
+                res.getWriter().write("{\"status\":403, \"mensagem\":\"Acesso negado\"}");
+            }))
         .build();  
     }
 
