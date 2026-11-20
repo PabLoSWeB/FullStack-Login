@@ -2,7 +2,6 @@ package com.example.FullStack_Login.dto;
 
 import org.hibernate.validator.constraints.br.CPF;
 
-import io.swagger.v3.oas.annotations.media.Schema;
 import jakarta.validation.constraints.Email;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.Pattern;
@@ -20,7 +19,6 @@ public record LoginInfoRequestdto (
     String email,
     @NotBlank (message = "O nome completo é obrigatório!")
     String nomeCompleto,
-    @Schema (hidden = true)
     @NotBlank (message = "A senha é obrigatória!")
     @Pattern (regexp = "^(?=(?:.*\\d){2})(?=.*[A-Z])(?=.*[^A-Za-z0-9]).{8,72}$", message = "A senha deve ter de 8 a 72 caracteres, com pelo menos 2 dígitos, 1 letra maiúscula e 1 caracter especial")
     String senha

@@ -11,6 +11,7 @@ import org.springframework.transaction.annotation.Transactional;
 
 import com.example.FullStack_Login.dto.LoginInfoRequestdto;
 import com.example.FullStack_Login.dto.LoginInfoResponsedto;
+import com.example.FullStack_Login.dto.PUTLoginInfoRequestdto;
 import com.example.FullStack_Login.entity.LoginInfo;
 import com.example.FullStack_Login.exceptions.CpfJaCadastradoException;
 import com.example.FullStack_Login.exceptions.EmailJaCadastradoException;
@@ -93,11 +94,11 @@ public class LoginInfoService {
     }
 
     @Transactional
-    public LoginInfoResponsedto putAtualizar (Long id, LoginInfoRequestdto requestdto) {
-        String cpfNormalizado = somenteDigitos(requestdto.cpf());
-        String numeroTelefoneNormalizado = somenteDigitos(requestdto.numeroTelefone());
-        String emailNormalizado = requestdto.email().trim().toLowerCase();
-        String nomeCompletoNormalizado = requestdto.nomeCompleto().trim();
+    public LoginInfoResponsedto putAtualizar (Long id, PUTLoginInfoRequestdto putdto) {
+        String cpfNormalizado = somenteDigitos(putdto.cpf());
+        String numeroTelefoneNormalizado = somenteDigitos(putdto.numeroTelefone());
+        String emailNormalizado = putdto.email().trim().toLowerCase();
+        String nomeCompletoNormalizado = putdto.nomeCompleto().trim();
         LoginInfo login = loginInfoRepository.findById(id).orElseThrow(()-> new PessoaNaoEncontradaException("As informações buscadas pelo id " +id+ " não foram encontradas."));
 
         if (loginInfoRepository.existsByCpfAndIdNot(cpfNormalizado, id)) {
