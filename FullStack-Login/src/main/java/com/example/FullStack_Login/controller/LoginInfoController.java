@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.example.FullStack_Login.dto.LoginInfoRequestdto;
 import com.example.FullStack_Login.dto.LoginInfoResponsedto;
+import com.example.FullStack_Login.dto.PUTLoginInfoRequestdto;
 import com.example.FullStack_Login.service.LoginInfoService;
 
 import io.swagger.v3.oas.annotations.Operation;
@@ -42,7 +43,7 @@ public class LoginInfoController {
 
     @Operation (
         summary = "Cadastrar novos usuários.",
-        description = "Registra informções dos novos usuários (CPF, Número de Telefone, Email e Nome Completo)"
+        description = "Registra informções dos novos usuários (CPF, Número de Telefone, Email, Nome Completo e Senha)"
     )
 
     @ApiResponses ({
@@ -166,7 +167,7 @@ public class LoginInfoController {
     })
     @SecurityRequirement (name = "bearerAuth")
     @PutMapping("atualizar/{id}")
-    public ResponseEntity<LoginInfoResponsedto> putAtualizar(@Parameter (description = "Identificador da Pessoa.", example = "1")  @PathVariable Long id, @RequestBody LoginInfoRequestdto requestdto) {
-        return ResponseEntity.ok(loginInfoService.putAtualizar(id, requestdto));
+    public ResponseEntity<LoginInfoResponsedto> putAtualizar(@Parameter (description = "Identificador da Pessoa.", example = "1")  @PathVariable Long id, @RequestBody PUTLoginInfoRequestdto putdto) {
+        return ResponseEntity.ok(loginInfoService.putAtualizar(id, putdto));
     }
 }
