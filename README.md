@@ -87,7 +87,7 @@ O segredo do JWT é lido da variável de ambiente `JWT_SECRET`. Se ela não esti
 
 1. Abra a pasta `Frontend` no VS Code.
 2. Inicie o Live Server (porta 5500).
-3. Acesse `http://127.0.0.1:5500/ArquivosHTML/login.html`.
+3. Acesse `http://127.0.0.1:5500/ArquivosHTML/cadastro.html`.
 
 O CORS do back-end libera as origens `http://localhost:5500` e `http://127.0.0.1:5500`.
 
