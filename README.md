@@ -110,7 +110,6 @@ O arquivo `Backend/teste.http` tem exemplos de cadastro, login, acesso com token
 - **Banco em memória (H2):** os dados são perdidos ao reiniciar. Próximo passo: PostgreSQL ou SQL Server.
 - **Sem controle de acesso por perfil:** todo usuário autenticado tem o papel fixo `ROLE_USER`, e qualquer usuário autenticado consegue listar, editar e remover outros. Próximo passo: roles e regras de autorização por dono do dado.
 - **Tela de perfil básica** e tela "Modificar informações" ainda em construção.
-- Token guardado em `localStorage` (adequado para estudo; a escolha de armazenamento tem implicações de segurança).
 - Sem testes automatizados.
 
 ## Sobre o desenvolvimento
