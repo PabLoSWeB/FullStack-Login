@@ -1,0 +1,115 @@
+body {
+    padding: 0px;
+    margin: 0px auto;
+    background-color: #000;
+    background-image: 
+        linear-gradient(rgba(0, 255, 65, 0.10) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(0, 255, 65, 0.10) 1px, transparent 1px);
+    background-size: 40px 40px; 
+    min-height: 100vh;
+}
+
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+
+#link {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#link h1 {
+    margin-left: 10px;
+    color: rgb(59, 59, 59);
+}
+
+#linkLikedin a{
+    color: black;
+    font-size:26px;
+    background-color: rgb(59, 59, 59);
+    border: rgba(255, 255, 255, 0.358) solid 1px;
+    padding: 5px 13px;
+    border-radius: 20px;
+}
+
+form {
+    margin: 0;
+    display: flex;
+    justify-content: center; 
+    align-items: center;
+    flex-direction: column;
+}
+
+#containerPrincipal{
+    background-color: rgb(20, 20, 20);
+    width: 360px;
+    text-align: center;
+    border-radius: 20px;
+}
+
+#containerPrincipal input {
+    background-color: rgb(59, 59, 59);
+    width: 80%;
+    height: 43px;
+    margin: 0px 5px;
+    padding-left: 10px;
+    border-radius: 10px;
+    border: none;
+    color: white;
+
+}
+
+#containerPrincipal input::placeholder {
+    padding: 13px;
+    color: rgba(255, 255, 255, 0.664);
+}
+
+#containerPrincipal #botaoLogin {
+    background-color: rgb(1, 158, 1);
+    color: black;
+    font-size: 18px;
+    letter-spacing: 1px;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    margin-top: 6px;
+}
+
+#containerPrincipal #botaoLogin:hover {
+    cursor: pointer;
+}
+
+#containerPrincipal h2{
+    color: rgb(2, 168, 2);
+    font-size: 28px;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+
+#containerPrincipal .posicao {
+    color: rgba(255, 255, 255, 0.664);
+    text-align: left;
+    padding-left: 42px;
+}
+
+#containerPrincipal #posicaoDestaque {
+    text-align: right;
+    padding: 7px 38px 7px 0px;
+}
+
+#containerPrincipal #cadastro, a {
+    color: rgb(2, 168, 2);
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    text-decoration: none;
+}
+#containerPrincipal a{
+    text-decoration: underline;
+}
+
+#direitoAutoral {
+    text-align: center;
+    padding-top: 2px;
+}
+
+#direitoAutoral a {
+    text-decoration: underline;
+    color: rgba(255, 255, 255, 0.47);
+}
