@@ -128,7 +128,7 @@ public class LoginInfoController {
 
     @ApiResponses ({
     @ApiResponse (
-        responseCode = "204",
+        responseCode = "200",
         description = "Livro deletado."
     ),
     @ApiResponse (
@@ -167,7 +167,7 @@ public class LoginInfoController {
     })
     @SecurityRequirement (name = "bearerAuth")
     @PutMapping("atualizar/{id}")
-    public ResponseEntity<LoginInfoResponsedto> putAtualizar(@Parameter (description = "Identificador da Pessoa.", example = "1")  @PathVariable Long id, @RequestBody PUTLoginInfoRequestdto putdto) {
+    public ResponseEntity<LoginInfoResponsedto> putAtualizar(@Valid @Parameter (description = "Identificador da Pessoa.", example = "1")  @PathVariable Long id, @RequestBody PUTLoginInfoRequestdto putdto) {
         return ResponseEntity.ok(loginInfoService.putAtualizar(id, putdto));
     }
 }
