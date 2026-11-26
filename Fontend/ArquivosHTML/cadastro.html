@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cadastro</title>
+    <link rel="stylesheet" href="../ArquivosCSS/cadastro.css">
+    <link rel="shortcut icon" href="../Icons/cadastro-icon.png" type="image/x-icon">
+</head>
+<body>
+    
+    <div id="link">
+        <div id="linkLikedin">
+        <a
+          aria-label="LinkedIn"
+          target="_blank"
+          href="https://www.linkedin.com/in/pablo-ribeiro-3794b1379/"
+         >P</a>
+        </div>
+        <h1>Pablo Ribeiro</h1>
+    </div>
+
+    
+    <form id="formCadastro" action="" >
+    <div id="containerPrincipal">
+        <h2>CADASTRO</h2>
+
+        
+        <p><input type="text" name="inputCpf" id="inputCpf" placeholder="CPF" required autocomplete="off"></p>
+        <p id="erroRegexCpf"></p>
+
+        
+        <p><input type="tel" name="inputTelefone" id="inputTelefone" placeholder="Telefone" required autocomplete="tel"></p>
+        <p id="erroRegexTelefone"></p>
+
+     
+        <p><input type="email" name="inputEmail" id="inputEmail" placeholder="E-mail" required autocomplete="email"></p>
+
+        
+        <p><input type="text" name="inputNome" id="inputNome" placeholder="Nome Completo" required autocomplete="name"></p>
+
+        
+        <p><input type="password" name="inputSenha" id="inputSenha" placeholder="Senha"  required autocomplete="current-password"></p>
+        <p id="erroRegexSenha"></p>
+        
+        <input id="botaoCadastrar" type="submit" value="CADASTRAR">
+        <p id="resposta"></p>
+        <p id="login">Já tem cadastro? <a href="login.html" target="_parent" rel="noopener noreferrer">Entrar</a></p>
+    </div> 
+    </form>   
+    
+    <p id="direitoAutoral"><a href="https://www.flaticon.com/br/icones-gratis/formulario-de-contato" title="formulário de contato ícones" target="_blank">ATRIBUIÇÃO: ICON - HJ STUDIO</a></p>
+
+<script src="../ArquivosJS/cadastro.js"></script>
+</body>
+</html>

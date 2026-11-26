@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+    <link rel="stylesheet" href="../ArquivosCSS/login.css">
+    <link rel="shortcut icon" href="../Icons/login-icon.png" type="image/x-icon">
+</head>
+<body>
+    <div id="link">
+        <div id="linkLikedin">
+        <a
+          aria-label="LinkedIn"
+          target="_blank"
+          href="https://www.linkedin.com/in/pablo-ribeiro-3794b1379/"
+         >P</a>
+        </div>
+        <h1>Pablo Ribeiro</h1>
+    </div>
+
+    <form id="formCadastro" action="">
+    <div id="containerPrincipal">
+        <h2>LOGIN</h2>
+        <p class="posicao">Usuário</p>
+        <p><input type="email" name="inputEmail" id="inputEmail" placeholder="E-mail" required autocomplete="email"></p>
+        <p class="posicao">Senha</p>
+        <p><input type="password" name="inputSenha" id="inputSenha" placeholder="Senha" required autocomplete="current-password"></p>
+        <p id="erroRegexSenha"></p>
+        <input id="botaoLogin" type="submit" value="LOGIN">
+        <p id="resposta"></p>
+
+        <p id="posicaoDestaque"><a style="color: rgba(255, 255, 255, 0.42);" href="../ArquivosHTML/modificarInfo.html" target="_parent" rel="noopener noreferrer">Modificar informações</a></p>
+
+        <p id="cadastro">Não se cadastrou? <a href="cadastro.html" target="_parent" rel="noopener noreferrer">Cadastrar</a></p>
+    </div>
+    </form>
+
+    <p id="direitoAutoral"><a href="https://www.flaticon.com/br/icones-gratis/conecte-se" title="conecte-se ícones" target="_blank"> ATRIBUIÇÃO: ICON - MAGNIFIC</a></p>
+    <script src="../ArquivosJS/login.js"></script>
+</body>
+</html>
