@@ -105,6 +105,16 @@ O arquivo `Backend/teste.http` tem exemplos de cadastro, login, acesso com token
 | Nome completo | Obrigatório |
 | Senha | 8 a 72 caracteres, com ao menos 2 dígitos, 1 letra maiúscula e 1 caractere especial |
 
+### Exemplo de entradas válidas:
+
+| **Campo** | **Teste Válido**|
+|-----------|-----------------|
+| CPF | Com ou sem caracteres: 529.982.247-25 |
+| Telefone | Com ou sem caracteres: (31) 9 3480-2390 |
+| E-mail | user@example.com | 
+| Nome Completo | Fulano de Tal |
+| Senha | Userrrr12! |
+
 ## Limitações conhecidas e próximos passos
 
 - **Banco em memória (H2):** os dados são perdidos ao reiniciar. Próximo passo: PostgreSQL ou SQL Server.
